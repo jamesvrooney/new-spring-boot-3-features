@@ -17,18 +17,7 @@ public class AppConfig {
     private String JsonPlaceholderClientBaseUrl;
 
     @Bean
-    public RestTemplate restTemplate() {
-        RestTemplateBuilder builder = new RestTemplateBuilder();
-
-        final RestTemplate restTemplate = builder.build();
-
-        return restTemplate;
-    }
-
-    @Bean
     JsonPlaceholderClient jsonPlaceholderClient() {
-//        final String baseUrl = "https://jsonplaceholder.typicode.com";
-
         final WebClient webClient = WebClient.builder().baseUrl(JsonPlaceholderClientBaseUrl).build();
 
         final HttpServiceProxyFactory factory = HttpServiceProxyFactory.builder(WebClientAdapter.forClient(webClient)).build();

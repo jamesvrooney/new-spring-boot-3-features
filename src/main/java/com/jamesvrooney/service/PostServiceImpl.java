@@ -17,19 +17,22 @@ import java.util.List;
 @Service
 public class PostServiceImpl implements PostService {
 
-    private final RestTemplate restTemplate;
+//    private final RestTemplate restTemplate;
+    private final JsonPlaceholderClient jsonPlaceholderClient;
+
 
     @Override
     public List<Post> getAll() {
 
 
-        ResponseEntity<List<Post>> apiResponse = restTemplate.exchange("https://jsonplaceholder.typicode.com/posts",
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {}
-        );
-
-        List<Post> posts = apiResponse.getBody();
+//        ResponseEntity<List<Post>> apiResponse = restTemplate.exchange("https://jsonplaceholder.typicode.com/posts",
+//                HttpMethod.GET,
+//                null,
+//                new ParameterizedTypeReference<>() {}
+//        );
+//
+//        List<Post> posts = apiResponse.getBody();
+        final List<Post> posts = jsonPlaceholderClient.getAllPosts();
 
         return posts;
     }
