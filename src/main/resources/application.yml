@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    name: blog
+    generate-unique-name: false
+  h2.console.enabled: true
+
+
+JsonPlaceholderClient:
+  baseUrl: "https://jsonplaceholder.typicode.com"
